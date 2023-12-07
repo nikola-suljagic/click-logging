@@ -5,20 +5,24 @@ import pandas as pd
 import logging
 from argparse import ArgumentParser
 
-logging.basicConfig(encoding='utf-8', level=logging.INFO)
+logging.basicConfig(encoding="utf-8", level=logging.INFO)
 
 
 if __name__ == "__main__":
     parser = ArgumentParser(
-                    prog='ClickLogging',
-                    description='Python tool for catching event messages from mikroE development board')
-    
-    
-    parser.add_argument("--log-file", type=str, default="events.csv", help="Specify file where events will be stored in .csv format")
-    
+        prog="ClickLogging",
+        description="Python tool for catching event messages from mikroE development board",
+    )
+
+    parser.add_argument(
+        "--log-file",
+        type=str,
+        default="events.csv",
+        help="Specify file where events will be stored in .csv format",
+    )
+
     args = parser.parse_args()
-    
-    
+
     ser = Serial(
         "/dev/ttyUSB0",
         timeout=None,
